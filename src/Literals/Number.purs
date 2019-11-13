@@ -35,16 +35,16 @@ class Number' (head :: Symbol) (tail :: Symbol) (part :: NumberPart)
 instance signPart :: (Cons h' t' t, Number' h' t' IntegerPart) => Number' "-" t Sign
 else instance signPartEmpty :: (Number' h t IntegerPart) => Number' h t Sign
 else instance pointIntegerPart :: (Cons h' t' t, Number' h' t' FractionalPart) => Number' "." t IntegerPart
-else instance lastIntegerPart ::  (Digit h) ⇒ Number' h "" IntegerPart
+else instance lastIntegerPart ::  (Digit h) => Number' h "" IntegerPart
 else instance digitIntegerPart :: (Digit h, Cons h' t' t, Number' h' t' IntegerPart) => Number' h t IntegerPart
-else instance lastFractionalPart :: (Digit h) ⇒ Number' h "" FractionalPart
+else instance lastFractionalPart :: (Digit h) => Number' h "" FractionalPart
 else instance digitFractionalPart :: (Digit h, Cons h' t' t, Number' h' t' FractionalPart) => Number' h t FractionalPart
 
-foreign import data Literal ∷ Symbol → Type
+foreign import data Literal :: Symbol -> Type
 
-literal :: ∀ s. IsSymbol s ⇒ Number s => Literal s
+literal :: forall s. IsSymbol s => Number s => Literal s
 literal = (unsafeCoerce (unsafePartial (fromJust (fromString (reflectSymbol (SProxy :: SProxy s))))))
 
-toNumber ∷ ∀ s. Literal s → Number
+toNumber :: forall s. Literal s -> Number
 toNumber = unsafeCoerce
 
