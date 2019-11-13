@@ -27,15 +27,13 @@ instance numberInstance :: (Number' h t Sign, Cons h t s) => Number s
 
 foreign import kind NumberPart
 foreign import data Sign :: NumberPart
-foreign import data FirstDigit :: NumberPart
 foreign import data IntegerPart :: NumberPart
 foreign import data FractionalPart :: NumberPart
 
 class Number' (head :: Symbol) (tail :: Symbol) (part :: NumberPart)
 
-instance signPart :: (Cons h' t' t, Number' h' t' FirstDigit) => Number' "-" t Sign
-else instance signPartEmpty :: (Number' h t FirstDigit) => Number' h t Sign
-else instance firstDigit :: (Digit h, Number' h t IntegerPart) => Number' h t FirstDigit
+instance signPart :: (Cons h' t' t, Number' h' t' IntegerPart) => Number' "-" t Sign
+else instance signPartEmpty :: (Number' h t IntegerPart) => Number' h t Sign
 else instance pointIntegerPart :: (Cons h' t' t, Number' h' t' FractionalPart) => Number' "." t IntegerPart
 else instance lastIntegerPart ::  (Digit h) ⇒ Number' h "" IntegerPart
 else instance digitIntegerPart :: (Digit h, Cons h' t' t, Number' h' t' IntegerPart) => Number' h t IntegerPart
