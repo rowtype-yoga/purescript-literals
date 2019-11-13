@@ -37,7 +37,7 @@ else instance signPartEmpty :: (Number' h t IntegerPart) => Number' h t Sign
 else instance pointIntegerPart :: (Cons h' t' t, Number' h' t' FractionalPart) => Number' "." t IntegerPart
 else instance lastIntegerPart ::  (Digit h) ⇒ Number' h "" IntegerPart
 else instance digitIntegerPart :: (Digit h, Cons h' t' t, Number' h' t' IntegerPart) => Number' h t IntegerPart
-else instance lastFractionalPart :: Number' h "" FractionalPart
+else instance lastFractionalPart :: (Digit h) ⇒ Number' h "" FractionalPart
 else instance digitFractionalPart :: (Digit h, Cons h' t' t, Number' h' t' FractionalPart) => Number' h t FractionalPart
 
 foreign import data Literal ∷ Symbol → Type
