@@ -8,8 +8,11 @@ You can edit this file as you like.
     [ "assert"
     , "effect"
     , "console"
+    , "numbers"
+    , "partial"
     , "psci-support"
     , "unsafe-coerce"
+    , "typelevel-prelude"
     ]
 , packages =
     ./packages.dhall
