@@ -1,13 +1,17 @@
-module Literals.Boolean where
+module Literals.Boolean
+       ( BooleanLit
+       , false_
+       , true_
+       ) where
 
+import Literals.Literal (Literal)
 import Unsafe.Coerce (unsafeCoerce)
 
-data True
-data False
+type BooleanLit sym = Literal Boolean sym
 
-true_ :: True
+true_ :: BooleanLit "true"
 true_ = unsafeCoerce true
 
-false_ :: False
+false_ :: BooleanLit "false"
 false_ = unsafeCoerce false
 

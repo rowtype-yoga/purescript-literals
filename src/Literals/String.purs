@@ -1,17 +1,15 @@
 module Literals.String
-       ( Literal
-       , literal
-       , toString
+       ( stringLit
+       , StringLit
        ) where
 
 import Data.Symbol (class IsSymbol, SProxy(..), reflectSymbol)
+import Literals.Literal (Literal)
 import Unsafe.Coerce (unsafeCoerce)
 
-foreign import data Literal :: Symbol -> Type
+type StringLit sym = Literal String sym
 
-literal :: forall sym. IsSymbol sym => Literal sym
-literal = unsafeCoerce (reflectSymbol (SProxy :: SProxy sym))
+stringLit :: forall sym. IsSymbol sym => StringLit sym
+stringLit = unsafeCoerce (reflectSymbol (SProxy :: SProxy sym))
 
-toString :: forall sym. Literal sym -> String
-toString = unsafeCoerce
 

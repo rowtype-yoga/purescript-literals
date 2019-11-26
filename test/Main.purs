@@ -3,8 +3,7 @@ module Test.Main where
 import Prelude
 
 import Effect (Effect)
-import Literals.Number (Literal, literal) as Number
-import Literals.String (Literal, literal) as String
+import Literals (NumberLit, StringLit, IntLit, intLit, numberLit, stringLit)
 import Test.Assert (assertEqual)
 import Unsafe.Coerce (unsafeCoerce)
 
@@ -12,28 +11,21 @@ import Unsafe.Coerce (unsafeCoerce)
 main :: Effect Unit
 main = do
   assertEqual
-    { actual: unsafeCoerce (String.literal :: String.Literal "foo")
+    { actual: unsafeCoerce (stringLit :: StringLit "foo")
     , expected: "foo"
     }
   assertEqual
-    { actual: unsafeCoerce (Number.literal :: Number.Literal "8")
+    { actual: unsafeCoerce (numberLit :: NumberLit "8.0")
     , expected: 8.0
     }
-  assertEqual
-    { actual: unsafeCoerce (Number.literal :: Number.Literal "-8")
+  assertEqual { actual: unsafeCoerce (numberLit :: NumberLit "-8.0")
     , expected: -8.0
     }
   assertEqual
-    { actual: unsafeCoerce (Number.literal :: Number.Literal "100.0")
-    , expected: 100.0
+    { actual: unsafeCoerce (intLit :: IntLit "8")
+    , expected: 8
     }
-  assertEqual
-    { actual: unsafeCoerce (Number.literal :: Number.Literal "-100.0")
-    , expected: -100.0
+  assertEqual { actual: unsafeCoerce (intLit :: IntLit "-8")
+    , expected: -8
     }
-  assertEqual
-    { actual: unsafeCoerce (Number.literal :: Number.Literal "0.0")
-    , expected: 0.0
-    }
-
 

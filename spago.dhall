@@ -8,6 +8,7 @@ You can edit this file as you like.
     [ "assert"
     , "effect"
     , "console"
+    , "integers"
     , "numbers"
     , "partial"
     , "psci-support"
