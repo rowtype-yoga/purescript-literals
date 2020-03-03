@@ -35,3 +35,21 @@ main = do
   -- Eq instance
   assertTrue $ undefined == undefined
   assertTrue $ (stringLit :: StringLit "foo") == (stringLit :: StringLit "foo")
+
+  -- Show instance
+  assertEqual
+    { actual: show (stringLit :: StringLit "foo")
+    , expected: "(Literal \"foo\")"
+    }
+  assertEqual
+    { actual: show (numberLit :: NumberLit "8.0")
+    , expected: "(Literal 8.0)"
+    }
+  assertEqual
+    { actual: show (intLit :: IntLit "8")
+    , expected: "(Literal 8)"
+    }
+  assertEqual
+    { actual: show undefined
+    , expected: "Undefined"
+    }
