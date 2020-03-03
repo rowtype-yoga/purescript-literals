@@ -4,7 +4,8 @@ import Prelude
 
 import Effect (Effect)
 import Literals (NumberLit, StringLit, IntLit, intLit, numberLit, stringLit)
-import Test.Assert (assertEqual)
+import Literals.Undefined (undefined)
+import Test.Assert (assertEqual, assertTrue)
 import Unsafe.Coerce (unsafeCoerce)
 
 
@@ -18,14 +19,19 @@ main = do
     { actual: unsafeCoerce (numberLit :: NumberLit "8.0")
     , expected: 8.0
     }
-  assertEqual { actual: unsafeCoerce (numberLit :: NumberLit "-8.0")
+  assertEqual
+    { actual: unsafeCoerce (numberLit :: NumberLit "-8.0")
     , expected: -8.0
     }
   assertEqual
     { actual: unsafeCoerce (intLit :: IntLit "8")
     , expected: 8
     }
-  assertEqual { actual: unsafeCoerce (intLit :: IntLit "-8")
+  assertEqual
+    { actual: unsafeCoerce (intLit :: IntLit "-8")
     , expected: -8
     }
 
+  -- Eq instance
+  assertTrue $ undefined == undefined
+  assertTrue $ (stringLit :: StringLit "foo") == (stringLit :: StringLit "foo")
