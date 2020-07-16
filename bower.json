@@ -1,0 +1,30 @@
+{
+  "name": "purescript-literals",
+  "homepage": "https://github.com/jvliwanag/purescript-literal",
+  "authors": [
+    "Jan Vincent Liwanag <jvliwanag@gmail.com>"
+  ],
+  "description": "A Symbol Proxy having a runtime value equal to the reflected symbol",
+  "main": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jvliwanag/purescript-literals.git"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "purescript-unsafe-coerce": "^4.0.0",
+    "purescript-prelude": "^4.1.1",
+    "purescript-maybe": "^4.0.1",
+    "purescript-integers": "^4.0.0",
+    "purescript-typelevel-prelude": "^5.0.2",
+    "purescript-partial": "^2.0.1",
+    "purescript-numbers": "^7.0.0"
+  }
+}
