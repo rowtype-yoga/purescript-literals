@@ -11,4 +11,3 @@ import Literals.Int (class Digit, class Int, class Int', IntLit, intLit) as Int
 import Literals.Literal (Literal, toValue) as Literal
 import Literals.Number (class Number, class Number', NumberLit, numberLit) as Number
 import Literals.String (StringLit, stringLit) as String
-

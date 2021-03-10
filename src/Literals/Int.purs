@@ -6,7 +6,7 @@ module Literals.Int
         , class Int
         , class Int'
         , intLit
-        , kind IntPart
+        , IntPart
         ) where
 
 import Prelude
@@ -33,7 +33,7 @@ else instance digit7 :: Digit "7"
 else instance digit8 :: Digit "8"
 else instance digit9 :: Digit "9"
 
-foreign import kind IntPart
+data IntPart
 foreign import data Sign :: IntPart
 foreign import data IntegerPart :: IntPart
 

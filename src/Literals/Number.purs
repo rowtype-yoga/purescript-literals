@@ -5,7 +5,7 @@ module Literals.Number
        , Sign
        , class Number
        , class Number'
-       , kind NumberPart
+       , NumberPart
        , numberLit
        ) where
 
@@ -25,7 +25,7 @@ class Number (sym :: Symbol)
 
 instance numberInstance :: (Number' h t Sign, Cons h t s) => Number s
 
-foreign import kind NumberPart
+data NumberPart
 foreign import data Sign :: NumberPart
 foreign import data IntegerPart :: NumberPart
 foreign import data FractionalPart :: NumberPart
@@ -43,4 +43,3 @@ type NumberLit sym = Literal Number sym
 
 numberLit :: forall sym. IsSymbol sym => Number sym => NumberLit sym
 numberLit = unsafeCoerce $ unsafePartial $ fromJust $ fromString $ reflectSymbol (SProxy :: SProxy sym)
-
