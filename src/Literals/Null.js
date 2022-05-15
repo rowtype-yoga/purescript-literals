@@ -1,1 +1,1 @@
-exports.null = null;
+export _null = null;

@@ -4,13 +4,13 @@
 , dependencies =
   [ "assert"
   , "effect"
-  , "console"
   , "integers"
+  , "maybe"
   , "numbers"
   , "partial"
-  , "psci-support"
-  , "unsafe-coerce"
+  , "prelude"
   , "typelevel-prelude"
+  , "unsafe-coerce"
   ]
 , packages = ./packages.dhall
 , sources = [ "src/**/*.purs", "test/**/*.purs" ]

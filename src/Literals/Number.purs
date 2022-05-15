@@ -13,12 +13,12 @@ import Prelude
 
 import Data.Maybe (fromJust)
 import Data.Number (fromString)
-import Data.Symbol (class IsSymbol, SProxy(..))
+import Data.Symbol (class IsSymbol)
 import Literals.Int (class Digit)
 import Literals.Literal (Literal)
 import Partial.Unsafe (unsafePartial)
 import Prim.Symbol (class Cons)
-import Type.Prelude (reflectSymbol)
+import Type.Prelude (reflectSymbol, Proxy(..))
 import Unsafe.Coerce (unsafeCoerce)
 
 class Number (sym :: Symbol)
@@ -42,4 +42,4 @@ else instance digitFractionalPart :: (Digit h, Cons h' t' t, Number' h' t' Fract
 type NumberLit sym = Literal Number sym
 
 numberLit :: forall sym. IsSymbol sym => Number sym => NumberLit sym
-numberLit = unsafeCoerce $ unsafePartial $ fromJust $ fromString $ reflectSymbol (SProxy :: SProxy sym)
+numberLit = unsafeCoerce $ unsafePartial $ fromJust $ fromString $ reflectSymbol (Proxy :: Proxy sym)

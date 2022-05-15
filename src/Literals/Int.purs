@@ -17,7 +17,8 @@ import Data.Symbol (class IsSymbol)
 import Literals.Literal (Literal)
 import Partial.Unsafe (unsafePartial)
 import Prim.Symbol (class Cons)
-import Type.Prelude (SProxy(..), reflectSymbol)
+import Type.Prelude (reflectSymbol)
+import Type.Proxy (Proxy(..))
 import Unsafe.Coerce (unsafeCoerce)
 
 class Digit (s :: Symbol)
@@ -50,4 +51,4 @@ else instance digitIntegerPart :: (Digit h, Cons h' t' t, Int' h' t' IntegerPart
 type IntLit sym = Literal Int sym
 
 intLit :: forall sym. IsSymbol sym => Int sym => IntLit sym
-intLit = unsafeCoerce $ unsafePartial $ fromJust $ fromString $ reflectSymbol (SProxy :: SProxy sym)
+intLit = unsafeCoerce $ unsafePartial $ fromJust $ fromString $ reflectSymbol (Proxy :: Proxy sym)
