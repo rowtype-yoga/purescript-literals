@@ -1,6 +1,6 @@
 { name = "literals"
 , license = "MIT"
-, repository = "https://github.com/jvliwanag/purescript-literals.git"
+, repository = "https://github.com/rowtype-yoga/purescript-literals.git"
 , dependencies =
   [ "assert"
   , "effect"
